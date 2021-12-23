@@ -6,28 +6,29 @@ $maxValue;
 
 ?>
 
+<form action="/<?= $path ?>/index.php/?price=" method="GET">
+    <h2 class="filter__title">Цена</h2>
 
-<div class="filter__inner">
-    <form action="/<?= $path ?>/index.php/?price=" method="GET">
-        <h2 class="filter__header">Price</h2>
-        <div class="filter__inner">
-            <input id="filter__price" name="price" value="2" oninput="changePrice()" type="range" step="1"  min="<?= min(array_column($data, 'price')); ?>" max="<?= max(array_column($data, 'price'));?>" />
-            <span id="filter__result"></span>
-        </div>
+    <input id="filter__price" name="price" value="<?= (!empty($_GET["price"])) ? $_GET["price"] : "" ?>" oninput="changePrice()" type="range" step="1"  min="<?= min(array_column($data, 'price')); ?>" max="<?= max(array_column($data, 'price'));?>" />
 
-        <h2 class="filter__header">Genres</h2>
-        <?php foreach ($genres as $key => $value) {?>
+    <h2 class="filter__title">Фильтр</h2>
+    <hr class="filter__line line" />
+    <!-- Genres -->
+    <div class="filter__genres">
+      <!-- ADD .... -->
 
-            <div class="genre__block"> 
-                <input type="checkbox" name="genre[]" value="<?= $value["name"] ?>" id="<?= $key ?>">
+      <?php foreach ($genres as $key => $value) {?>
+
+            <div class="filter__gener"> 
+                <input type="checkbox" name="genre[]" value="<?= $value["name"] ?>" id="<?= $key ?>" <?=(!empty($_GET['genre']) && array_search($value['name'], $_GET['genre']) !== false) ? 'checked' : ''?>>
                 <label for="<?= $key ?>"><?= $value["name"]?></label>
             </div>
 
         <? }; ?>
-        
+    </div>
+    <!-- Genres end -->
 
-        <input class="filter__apply" type="submit" value="Apply" />
-
-    </form>
-</div>
-
+    <div class="filter__btn">
+      <input type="submit" value="Aplly" />
+    </div>
+</form>

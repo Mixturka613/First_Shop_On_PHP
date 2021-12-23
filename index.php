@@ -22,25 +22,24 @@ include ('./globalVariable.php');
       <? include ('./particals/header/header.php'); ?>
     </header>
 
-    <div class="products-page">
-      <div class="products-page__inner">
-        <!-- Filters -->
-        <div class="products-page__filters">
-          <div class="filter">
+    
+      <div class="shop container">
 
-            <?php include ('./particals/filters/filter.php'); ?>
-            
-          </div>
-        </div>
+        <!-- Filters -->
+        <section class="filter shop__filter">
+          <? include ('./particals/filters/filter.php') ?>
+        </section>
+        <!-- Filters end -->
+
 
         <!-- Contents -->
-        <div class="products-page__contents">
-          
+        <div class="contents shop__contents">
+          <div class="shop__list">
+
           <?php
           
           $filterPrice = (int)$_GET["price"];
           $filterGenres = $_GET['genre'];   
-
           
           foreach ($data as $products => $product) {
 
@@ -49,45 +48,42 @@ include ('./globalVariable.php');
                 continue;
               } else {
                 if ($filterGenres !== NULL) {
-  
-
                   if(array_search($product['genre'], $filterGenres) === false) {
                     continue;
                   }
                   
                 }
               }
-            }
+            } ?>
 
-            
-            
-            
-              
-            
-            ?>
+            <!-- SHOP ITEM -->
 
-            <div class="product__wrapper">
-              <a href="books/?id=<?= $product["id"] ?>" class="product">
-                <div class="product__inner">
-
-                  <div class="product__img">
-                    <img src="<?= $product["urlImg"] ?>" alt="" />
-                  </div>
-
-                  <div class="product__info">
-                    <h2 class="product__name"><?= $product["name"] ?></h2>
-                    <a href="author/?name=<?= $product["author"] ?>" class="product__author"><?= $product["author"] ?></a>
-                  </div>
-
+            <div class="shop__item product">
+              <a href="book.php/?id=<?= $product["id"] ?>">
+                <div class="product__img">
+                  <img
+                    src="<?= $product["urlImg"] ?>"
+                    alt=""
+                  />
                 </div>
-
               </a>
+
+              <div class="product__info">
+                <a href="book/?id=<?= $product["id"] ?>" class="product__name"><?= $product["name"] ?></a>
+                <a href="author/?name=<?= $product["author"] ?>" class="product__author"><?= $product["author"] ?></a>
+              </div>
+
+              <span class="product__price"><?= $product["price"] ?> руб.</span>
             </div>
 
-          <?php }; ?>
+            <!-- SHOP ITEM END -->
+            <?php }; ?>
 
+          </div>  
         </div>
+        <!-- SHOP LIST END -->
+        <!-- Content END -->
       </div>
-    </div>
+      
   </body>
 </html>

@@ -14,13 +14,29 @@ include ('./globalVariable.php')
                 </a>
         </div>
 
+        <div class="header__middle__side">
+          <ul class="header__middle__side__inner">
+            <li class="header__link">
+              <a href="/" class="header__link__inner">Новинки</a>
+            </li>
 
-        <div class="header__rigt__side">   
+            <li class="header__link">
+              <a href="/" class="header__link__inner">Контакты</a>
+            </li>
+
+            <li class="header__link">
+              <a href="/" class="header__link__inner">Популярные</a>
+            </li>
+          </ul>
+        </div>
+
+
+        <div class="header__right__side">   
 
             <div class="header__basket">
                 <a href="/<?= $path ?>/basket.php" class="basket">
                     <img class="basket__img" src="/<?= $path ?>/img/basket.png" alt="">
-                    <h2 class="basket__text">0€</h2>
+                    <h2 class="basket__text">0 ₽</h2>
                 </a>
             </div>
 

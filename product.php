@@ -2,78 +2,50 @@
 
 $data = [
   [
-    "name" => "451 degrees Fahrenheit",
+    "name" => "451 degrees Fahrenheit  1",
     "author" => "Ray Bradbury",
-    "urlImg" => "https://www.spbdk.ru/upload/iblock/355/355d919512f5e48cf71777e0e8fa56c1.jpg", 
+    "urlImg" => "https://cv2.litres.ru/pub/c/elektronnaya-kniga/cover_330/66260724-kristian-vind-introvert.jpg", 
     "id" => 1,
-    "price" => 5,
+    "price" => 500,
     "genre" => "Fantazy"
   ],
 
   [
-    "name" => "451 degrees Fahrenheit",
+    "name" => "451 degrees Fahrenheit2  ",
     "author" => "Ray Bradbury",
-    "urlImg" => "https://www.spbdk.ru/upload/iblock/355/355d919512f5e48cf71777e0e8fa56c1.jpg", 
+    "urlImg" => "https://cv2.litres.ru/pub/c/elektronnaya-kniga/cover_330/66260724-kristian-vind-introvert.jpg", 
+    "id" => 2,
+    "price" => 599,
+    "genre" => "Fantazy"
+  ],
+
+  [
+    "name" => "451 degrees Fahrenheit3",
+    "author" => "Ray Bradbury",
+    "urlImg" => "https://cv2.litres.ru/pub/c/elektronnaya-kniga/cover_330/66260724-kristian-vind-introvert.jpg", 
     "id" => 3,
-    "price" => 5,
-    "genre" => "Fantazy"
-  ],
-
-  [
-    "name" => "451 degrees Fahrenheit",
-    "author" => "Ray Bradbury",
-    "urlImg" => "https://fantasywiki.ru/wp-content/uploads/2017/07/i357486-768x1058.jpg", 
-    "id" => 4,
-    "price" => 2,
+    "price" => 299,
     "genre" => "Сlassical literature"
   ],
 
   [
-    "name" => "451 degrees Fahrenheit",
+    "name" => "451 degrees Fahrenheit 4",
     "author" => "Ray Bradbury",
-    "urlImg" => "https://fantasywiki.ru/wp-content/uploads/2017/07/i357486-768x1058.jpg", 
+    "urlImg" => "https://cv2.litres.ru/pub/c/elektronnaya-kniga/cover_330/66260724-kristian-vind-introvert.jpg", 
     "id" => 4,
-    "price" => 2,
+    "price" => 299,
     "genre" => "Сlassical literature"
   ],
 
-
-  [
-    "name" => "451 degrees Fahrenheit",
+    [
+    "name" => "451 degrees Fahrenheit 5",
     "author" => "Ray Bradbury",
-    "urlImg" => "https://fantasywiki.ru/wp-content/uploads/2017/07/i357486-768x1058.jpg", 
-    "id" => 4,
-    "price" => 2,
+    "urlImg" => "https://cv2.litres.ru/pub/c/elektronnaya-kniga/cover_330/66260724-kristian-vind-introvert.jpg", 
+    "id" => 5,
+    "price" => 299,
     "genre" => "Сlassical literature"
-  ],
+  ]
 
-
-  [
-    "name" => "451 degrees Fahrenheit",
-    "author" => "Ray Bradbury",
-    "urlImg" => "https://fantasywiki.ru/wp-content/uploads/2017/07/i357486-768x1058.jpg", 
-    "id" => 4,
-    "price" => 2,
-    "genre" => "Сlassical literature"
-  ],
-
-  [
-    "name" => "451 degrees Fahrenheit",
-    "author" => "Ray Bradbury",
-    "urlImg" => "https://www.spbdk.ru/upload/iblock/355/355d919512f5e48cf71777e0e8fa56c1.jpg", 
-    "id" => 4,
-    "price" => 2,
-    "genre" => "Сlassical literature"
-  ],
-
-  [
-    "name" => "451 degrees Fahrenheit",
-    "author" => "Ray Bradbury",
-    "urlImg" => "https://fantasywiki.ru/wp-content/uploads/2017/07/i357486-768x1058.jpg", 
-    "id" => 4,
-    "price" => 4,
-    "genre" => "Fantazy"
-  ],
-];
+]
 
 ?>
