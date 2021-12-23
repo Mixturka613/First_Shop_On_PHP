@@ -59,7 +59,7 @@ include ('./globalVariable.php');
             <!-- SHOP ITEM -->
 
             <div class="shop__item product">
-              <a href="book.php/?id=<?= $product["id"] ?>">
+              <a href="/<?= $path ?>/book.php/?id=<?= $product["id"] ?>">
                 <div class="product__img">
                   <img
                     src="<?= $product["urlImg"] ?>"

@@ -41,7 +41,7 @@ include ('./globalVariable.php')
             </div>
 
             <div class="header__user">
-                <a class="header__user__link" href="/<?= $path ?>/user/:id">
+                <a class="header__user__link">
                     <img class="header__user__img" src="/<?= $path ?>/img/user.png" alt="">
                 </a>
             </div>

@@ -3,6 +3,9 @@
 include ('./product.php');
 include ('./globalVariable.php');
 
+$bookId = (int)$_GET['id'];
+$data_about_book = $data[$bookId];
+
 ?>
 
 <!DOCTYPE html>
@@ -16,22 +19,29 @@ include ('./globalVariable.php');
     <title></title>
   </head>
   <body>
+
+    <header class="header">
+      <? include ('./particals/header/header.php'); ?>
+    </header>
+
     <div class="book container">
       <div class="book__inner">
         <!-- IMG -->
         <div class="book__img">
           <img
-            src="https://cv2.litres.ru/pub/c/elektronnaya-kniga/cover_330/66260724-kristian-vind-introvert.jpg"
+            src="<?= $data_about_book["urlImg"] ?>"
             alt=""
           />
         </div>
         <!-- Img end -->
         <!-- Book content -->
         <div class="book__content">
-          <h1 class="book__name">Интроверт</h1>
+          <h1 class="book__name"><?= $data_about_book["name"] ?></h1>
           <h2 class="book__author">
-            Author: <a href="/">Кристиан Роберт Винд</a>
+            Author: <a href="/<?= $path ?>/author.php/?authorName=<?= $data_about_book["author"] ?>"><?= $data_about_book["author"] ?></a>
           </h2>
+
+          <h2 class="book__price">Price: <?= $data_about_book["price"] ?>₽</h2>
 
           <button class="book__btn btn">Купить</button>
         </div>
@@ -43,17 +53,7 @@ include ('./globalVariable.php');
       <section class="book__description">
         <h2 class="book__description-title">Описание</h2>
         <p class="text">
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque ab
-          praesentium, ad ipsa, exercitationem eveniet deleniti, omnis
-          temporibus at corrupti beatae laudantium officia aliquam dolorem
-          aliquid. Eaque labore corporis assumenda? Lorem ipsum dolor sit amet
-          consectetur adipisicing elit. Commodi asperiores minus ipsum vel
-          maiores, delectus deserunt, similique in et aperiam voluptatibus
-          nesciunt odio! Quaerat, suscipit possimus odit culpa fugiat atque!
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem quo
-          voluptas tempora corrupti velit incidunt reiciendis alias. Eos est hic
-          adipisci dolore, obcaecati, dicta nostrum aperiam fuga sit vel
-          reiciendis.
+          <?= $data_about_book["description"] ?>
         </p>
       </section>
 
