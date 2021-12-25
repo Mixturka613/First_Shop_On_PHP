@@ -369,6 +369,45 @@ body {
   font-size: 15px;
 }
 
+/* Author */
+
+.author__main-info {
+  display: flex;
+  align-items: flex-start;
+}
+
+.author__main-info__inner {
+  margin: 0 40px;
+}
+
+.author__title {
+  font-size: 30px;
+  font-weight: 300;
+}
+
+.author__info {
+  font-size: 15px;
+  font-weight: 300;
+  margin: 5px 0;
+}
+
+.author__img {
+  width: 800px;
+  height: 500px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.author__img img {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: auto;
+  justify-content: center;
+}
+
 /* MEDIA */
 
 @media screen and (max-width: 1220px) {

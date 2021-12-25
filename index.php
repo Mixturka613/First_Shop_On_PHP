@@ -39,10 +39,6 @@ include ('./globalVariable.php');
           <div class="shop__list">
 
           <?php
-
-          echo "<pre>";
-            print_r($hello);
-          echo "</pre>";
             
           $filterPrice = (int)$_GET["price"];
           $filterGenres = $_GET['genre'];   
@@ -75,8 +71,8 @@ include ('./globalVariable.php');
               </a>
 
               <div class="product__info">
-                <a href="book/?id=<?= $product["id"] ?>" class="product__name"><?= $product["name"] ?></a>
-                <a href="author/?name=<?= $product["author"] ?>" class="product__author"><?= $product["author"] ?></a>
+                <a href="/<?= $path ?>/book.php/?id=<?= $product["id"] ?>" class="product__name"><?= $product["name"] ?></a>
+                <a href="/<?= $path ?>/author.php/?name=<?= $product["author"] ?>" class="product__author"><?= $product["author"] ?></a>
               </div>
 
               <span class="product__price"><?= $product["price"] ?> руб.</span>

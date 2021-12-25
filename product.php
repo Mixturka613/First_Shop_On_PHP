@@ -16,7 +16,7 @@ while ($row = mysqli_fetch_assoc($sql_data))
 
 // $data = $newdata;
 
-// INSERT (name, author, urlImg, price, genre, description) VALUES( "451 degrees Fahrenheit 1", "Ray Bradbury", "https://cv2.litres.ru/pub/c/elektronnaya-kniga/cover_330/66260724-kristian-vind-introvert.jpg", 500, "Fantazy", "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque ab
+// INSERT books (name, author, urlImg, price, genre, description) VALUES( "451 degrees Fahrenheit 1", "Ray Bradbury", "https://cv2.litres.ru/pub/c/elektronnaya-kniga/cover_330/66260724-kristian-vind-introvert.jpg", 500, "Fantazy", "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque ab
 //           praesentium, ad ipsa, exercitationem eveniet deleniti, omnis
 //           temporibus at corrupti beatae laudantium officia aliquam dolorem
 //           aliquid. Eaque labore corporis assumenda? Lorem ipsum dolor sit amet
