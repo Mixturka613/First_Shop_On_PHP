@@ -9,6 +9,7 @@
 body {
   background: #fff;
   font-family: "Poppins", sans-serif;
+  overflow-x: hidden;
 }
 
 .container {
@@ -75,6 +76,7 @@ body {
 /* header user */
 
 .header__user__link {
+  cursor: pointer;
   text-decoration: none;
   color: #000;
 }
@@ -219,6 +221,152 @@ body {
   font-size: 15px;
   cursor: pointer;
   font-weight: 600;
+}
+
+/* Menu */
+
+.menu {
+  position: absolute;
+  background: rgb(247, 247, 247);
+  width: 350px;
+  height: 100vh;
+  right: -350px;
+  transition: 0.4s ease-in-out;
+}
+
+/* close */
+
+.menu__close {
+  display: flex;
+  justify-content: flex-start;
+  margin: 20px;
+}
+
+.close {
+  position: relative;
+  width: 32px;
+  height: 32px;
+  opacity: 0.3;
+  cursor: pointer;
+}
+.close:hover {
+  opacity: 1;
+}
+.close:before,
+.close:after {
+  position: absolute;
+  left: 15px;
+  content: " ";
+  height: 33px;
+  width: 2px;
+  background-color: #333;
+}
+.close:before {
+  transform: rotate(45deg);
+}
+.close:after {
+  transform: rotate(-45deg);
+}
+
+/* Content */
+.menu__content {
+  margin: 20px 0;
+  padding: 20px;
+}
+
+/* Forms */
+
+.form__register {
+  display: none;
+}
+
+.auth__btns {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.auth__btn {
+  border: none;
+  background: none;
+  font-size: 15px;
+  background: rgb(42, 196, 243);
+  color: #fff;
+  font-weight: 600;
+  padding: 8px 20px;
+  cursor: pointer;
+}
+
+.auth__btn:nth-child(2) {
+  margin-left: 20px;
+}
+
+.auth__input {
+  border: none;
+  outline: none;
+  background: none;
+  font-size: 15px;
+  box-shadow: 0 0 10px 10px rgb(0, 0, 0, 0.02);
+  border-radius: 5px;
+  padding: 5px 10px;
+  margin-top: 15px;
+  width: 70%;
+}
+
+.auth__title {
+  font-weight: 300;
+  font-size: 25px;
+  margin: 10px 0;
+}
+
+.auth__line {
+  margin: 20px 0;
+}
+
+.form__btn {
+  margin: 40px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 10px 20px;
+}
+
+/* USER PAGE */
+
+.menu__user-page {
+  margin: 40px;
+}
+
+.user-page__avatar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 100px;
+  overflow: hidden;
+}
+
+.user-page__avatar img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.user-page__info {
+  text-align: left;
+  margin: 20px 0;
+}
+
+.user-page__name {
+  font-size: 20px;
+  font-weight: 300;
+}
+
+.user-page__email {
+  font-weight: 300;
+  font-size: 15px;
 }
 
 /* MEDIA */

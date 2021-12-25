@@ -11,6 +11,8 @@ $maxValue;
 
     <input id="filter__price" name="price" value="<?= (!empty($_GET["price"])) ? $_GET["price"] : "" ?>" oninput="changePrice()" type="range" step="1"  min="<?= min(array_column($data, 'price')); ?>" max="<?= max(array_column($data, 'price'));?>" />
 
+    <span id="filter__result"></span>
+
     <h2 class="filter__title">Фильтр</h2>
     <hr class="filter__line line" />
     <!-- Genres -->

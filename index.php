@@ -2,7 +2,6 @@
 
 include ('./product.php');
 include ('./globalVariable.php');
-// <?php  var_dump($_GET) 
 
 ?>
 
@@ -15,12 +14,15 @@ include ('./globalVariable.php');
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" type="text/css" href="/<?= $path ?>/css/style.css" />
     <script src="/<?= $path ?>/particals/filters/filter.js" defer></script>
+    <script src="/<?= $path ?>/scripts/menu.js " defer></script>
     <title>CoolBook</title>
   </head>
   <body>
     <header class="header">
       <? include ('./particals/header/header.php'); ?>
     </header>
+
+    <?php include ('./particals/menu/menu.php') ?>
 
     
       <div class="shop container">
@@ -37,7 +39,11 @@ include ('./globalVariable.php');
           <div class="shop__list">
 
           <?php
-          
+
+          echo "<pre>";
+            print_r($hello);
+          echo "</pre>";
+            
           $filterPrice = (int)$_GET["price"];
           $filterGenres = $_GET['genre'];   
           

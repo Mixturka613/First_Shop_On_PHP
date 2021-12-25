@@ -4,7 +4,12 @@ include ('./product.php');
 include ('./globalVariable.php');
 
 $bookId = (int)$_GET['id'];
-$data_about_book = $data[$bookId];
+$data_about_book = [];
+foreach ($data as $book) {
+    if ((int)$book['id'] === $bookId) {
+      $data_about_book = $book;
+    }
+}
 
 ?>
 
@@ -16,6 +21,7 @@ $data_about_book = $data[$bookId];
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/<?= $path ?>/css/style.css" />
     <link rel="stylesheet" href="/<?= $path ?>/css/book.css" />
+    <script src="/<?= $path ?>/scripts/menu.js " defer></script>
     <title></title>
   </head>
   <body>
@@ -23,6 +29,8 @@ $data_about_book = $data[$bookId];
     <header class="header">
       <? include ('./particals/header/header.php'); ?>
     </header>
+
+    <?php include ('./particals/menu/menu.php') ?>
 
     <div class="book container">
       <div class="book__inner">
