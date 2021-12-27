@@ -1,6 +1,6 @@
 <?php
 
-setcookie("jwt-tocken","",time()-10000, '/coolbook');
-return header('Location: http://localhost/coolbook/');
+setcookie("jwt-tocken","",time()-10000, '/');
+return header('Location: http://coolbook/');
 
 ?>

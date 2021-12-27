@@ -12,9 +12,9 @@ include ('./globalVariable.php');
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" type="text/css" href="/<?= $path ?>/css/style.css" />
-    <script src="/<?= $path ?>/particals/filters/filter.js" defer></script>
-    <script src="/<?= $path ?>/scripts/menu.js " defer></script>
+    <link rel="stylesheet" type="text/css" href="/css/style.css" />
+    <script src="particals/filters/filter.js" defer></script>
+    <script src="scripts/menu.js " defer></script>
     <title>CoolBook</title>
   </head>
   <body>
@@ -61,7 +61,7 @@ include ('./globalVariable.php');
             <!-- SHOP ITEM -->
 
             <div class="shop__item product">
-              <a href="/<?= $path ?>/book.php/?id=<?= $product["id"] ?>">
+              <a href="/book.php/?id=<?= $product["id"] ?>">
                 <div class="product__img">
                   <img
                     src="<?= $product["urlImg"] ?>"
@@ -71,8 +71,8 @@ include ('./globalVariable.php');
               </a>
 
               <div class="product__info">
-                <a href="/<?= $path ?>/book.php/?id=<?= $product["id"] ?>" class="product__name"><?= $product["name"] ?></a>
-                <a href="/<?= $path ?>/author.php/?name=<?= $product["author"] ?>" class="product__author"><?= $product["author"] ?></a>
+                <a href="/book.php/?id=<?= $product["id"] ?>" class="product__name"><?= $product["name"] ?></a>
+                <a href="/author.php/?name=<?= $product["author"] ?>" class="product__author"><?= $product["author"] ?></a>
               </div>
 
               <span class="product__price"><?= $product["price"] ?> руб.</span>

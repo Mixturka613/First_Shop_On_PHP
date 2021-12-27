@@ -6,7 +6,7 @@ $maxValue;
 
 ?>
 
-<form action="/<?= $path ?>/index.php/?price=" method="GET">
+<form action="/index.php?price=" method="GET">
     <h2 class="filter__title">Цена</h2>
 
     <input id="filter__price" name="price" value="<?= (!empty($_GET["price"])) ? $_GET["price"] : "" ?>" oninput="changePrice()" type="range" step="1"  min="<?= min(array_column($data, 'price')); ?>" max="<?= max(array_column($data, 'price'));?>" />

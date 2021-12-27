@@ -9,6 +9,6 @@
 
     if ($connect == false) {
         print_r("Ошибка: " . mysqli_connect_error());
-    } 
+    }
     
 ?>

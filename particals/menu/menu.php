@@ -1,7 +1,7 @@
 <?php 
 
-include ('./globalVariable.php');
-include ('./authorisation/auth-test.php');
+$ds = DIRECTORY_SEPARATOR;
+include (realpath ( dirname(__FILE__) . $ds . "../..") . $ds . "authorisation\auth-test.php");
 
 ?>
 
@@ -15,12 +15,12 @@ include ('./authorisation/auth-test.php');
             
                 <?php
                 if ( empty($_COOKIE) ) {
-                  include ('./particals/menu/auth-page/auth-page.php');
+                  include (__DIR__ . '/auth-page/auth-page.php');
                 } else {
                   if ( !empty (getDataUser($_COOKIE['jwt-tocken']) ) ) {
-                    include ('./particals/menu/user-page/user-page.php') ;
+                    include ( __DIR__ . '/user-page/user-page.php') ;
                   } else {
-                    include ('./particals/menu/auth-page/auth-page.php');
+                    include (__DIR__ . '/auth-page/auth-page.php');
                   }
                 }
                 ?>

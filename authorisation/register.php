@@ -9,10 +9,10 @@ require_once('../vendor/autoload.php');
 include ('../connectBD.php');
 include ('../globalVariable.php');
 
-$username = $_POST['username'];
-$email = $_POST['email'];
-$password = $_POST['password'];
-$rPassword = $_POST['passwordRepeat'];
+$username = htmlentities ($connect->real_escape_string($_POST['username']) );
+$email = htmlentities ($connect->real_escape_string( $_POST['email'] ) );
+$password = htmlentities ($connect->real_escape_string( $_POST['password'] ) );
+$rPassword = htmlentities ($connect->real_escape_string ($_POST['passwordRepeat'] ) );
 
 if ( !empty($email) and !empty($password) and !empty($rPassword) and !empty($username)) {
 
@@ -40,13 +40,14 @@ if ( !empty($email) and !empty($password) and !empty($rPassword) and !empty($use
     $payload = array(
         "username" => $username,
         "email" => $email,
+        "admin" => FALSE,
     );
 
     $jwt = JWT::encode($payload, $key, 'HS256');
 
     if ($save) {
-        setcookie("jwt-tocken", $jwt, time()+(60*60*60), '/coolbook');
-        return header('Location: http://localhost/coolbook/');
+        setcookie("jwt-tocken", $jwt, time()+(60*60*60), '/');
+        return header('Location: http://coolbook/');
     }
     else {
         echo "Что-то пошло не так";

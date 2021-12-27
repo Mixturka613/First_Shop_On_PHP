@@ -10,12 +10,21 @@
     <p class="user-page__email">Email: <?= getDataUser($_COOKIE['jwt-tocken'])->email ; ?></p>
   </div>
 
-  <form action="/coolbook/authorisation/logout.php">
+  <form action="/authorisation/logout.php">
     <input
       type="submit"
       class="auth__btn user-page__btn"
       value="Logout"
     />
   </form>
+
+  
+  <?php if (!!getDataUser($_COOKIE['jwt-tocken'])->admin) { ?>
+
+    <a href="/admin/admin.php">ADMIN</a>
+
+  <?php }  ?>
+  
+ 
 
 </div>

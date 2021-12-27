@@ -9,8 +9,8 @@ require_once('../vendor/autoload.php');
 include ('../connectBD.php');
 include ('../globalVariable.php');
 
-$email = $_POST['email'];
-$password = $_POST['password'];
+$email = htmlentities( $connect->real_escape_string ($_POST['email']) ) ;
+$password = htmlentities ( $connect->real_escape_string($_POST['password']) );
 
 if ( empty($email) and empty($password) ) {
     echo "Пароль или email пуст";
@@ -25,7 +25,7 @@ if ($testEmail->num_rows === 0) {
     die();
 }
 
-$sql = "select password, username from users where email = '$email'";
+$sql = "select * from users where email = '$email'";
 $dataAboutUser = mysqli_query($connect, $sql);
 
 $newdata;
@@ -45,12 +45,13 @@ if (!$testPassword) {
 $payload = array(
     "username" => $newdata['username'],
     "email" => $email,
+    "admin" => !!$newdata['admin'],
 );
 
 $jwt = JWT::encode($payload, $key, 'HS256');
 
-setcookie("jwt-tocken", $jwt, time()+(60*60*60), '/coolbook');
-return header('Location: http://localhost/coolbook/');
+setcookie("jwt-tocken", $jwt, time()+(60*60*60), '/');
+return header('Location: http://coolbook/');
 
  
 ?>
