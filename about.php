@@ -10,13 +10,16 @@
   </head>
   <body>
 
+  
+    <?
+      include ('./particals/menu/menu.php'); 
+      include __DIR__ . "/add/busketInfo.php";
+    ?>
+
     <header class="header">
       <? include ('./particals/header/header.php');?>
     </header>
 
-    <? include ('./particals/menu/menu.php'); ?>
-
-    <?php  ?>
 
     <div class="container">
       <h1 class="about__title">

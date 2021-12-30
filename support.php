@@ -10,15 +10,18 @@
   </head>
   <body>
 
+      <?php
+        include ('./particals/menu/menu.php');
+        include __DIR__ . "/add/busketInfo.php";
+      ?>
+
+    <? 
+        $dataUser=getDataUser($_COOKIE['jwt-tocken']);
+    ?>
+
     <header class="header">
       <? include ('./particals/header/header.php');?>
     </header>
-
-    <? include ('./particals/menu/menu.php'); ?>
-
-    <? include __DIR__ . "/admin/admin__test.php"; 
-        $dataUser=getDataUser($_COOKIE['jwt-tocken']);
-    ?>
 
     <div class="container">
       <h1 class="about__title">Задайте вопрос</h1>

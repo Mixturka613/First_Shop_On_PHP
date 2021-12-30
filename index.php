@@ -18,12 +18,14 @@ include ('./globalVariable.php');
     <title>CoolBook</title>
   </head>
   <body>
+
+  <?php include ('./particals/menu/menu.php');
+    include __DIR__ . "/add/busketInfo.php";
+  ?>
+
     <header class="header">
       <? include ('./particals/header/header.php'); ?>
     </header>
-
-    <?php include ('./particals/menu/menu.php') ?>
-
     
       <div class="shop container">
 

@@ -1,3 +1,4 @@
+
 <div class="header__inner">
 
         <div class="header__logo">
@@ -23,13 +24,12 @@
           </ul>
         </div>
 
-
         <div class="header__right__side">   
 
             <div class="header__basket">
                 <a href="/basket.php" class="basket">
                     <img class="basket__img" src="/img/basket.png" alt="">
-                    <h2 class="basket__text">0 ₽</h2>
+                    <h2 class="basket__text"><?php echo $basket['resultPrice'] ?> ₽</h2>
                 </a>
             </div>
 

@@ -658,6 +658,66 @@ body {
   overflow-y: auto;
   padding: 20px;
 }
+
+/* Busket */
+
+.busket__list {
+  display: flex;
+  flex-direction: column;
+  height: 600px;
+  overflow-y: scroll;
+  padding: 40px;
+}
+
+.busket__item {
+  display: flex;
+  box-shadow: 0 0 10px 10px rgb(0, 0, 0, 0.05);
+  height: 250px;
+  border-radius: 5px;
+  margin-top: 20px;
+  overflow: hidden;
+}
+
+.busket__img {
+  width: 150px;
+  height: 200px;
+  overflow: hidden;
+}
+
+.busket__img img {
+  width: 100%;
+}
+
+.busket__info {
+  flex-grow: 1;
+  padding: 10px;
+}
+
+.busket__price {
+  padding: 20px;
+  flex-basis: 200px;
+  display: flex;
+  flex-direction: column;
+}
+
+.busket__btns {
+  margin: 10px 0;
+  display: flex;
+  align-items: center;
+}
+
+.busket__btn {
+  cursor: pointer;
+}
+
+.busket__btn label {
+  cursor: pointer;
+}
+
+.busket__btns img {
+  width: 25px;
+}
+
 /* MEDIA */
 
 @media screen and (max-width: 1220px) {

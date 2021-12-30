@@ -10,44 +10,82 @@
 </head>
 <body>
 
+    <?php
+        include ('./particals/menu/menu.php');
+        include __DIR__ . "/add/busketInfo.php";
+      ?>
+
     <header class="header">
       <? include ('./particals/header/header.php'); ?>
     </header>
 
-    <?php include ('./particals/menu/menu.php') ?>
-
     <div class="container">
 
+        <div class="busket__list">
+
         <?php 
+            
+            foreach ($basket['elements'] as $product) { $book = $product[0];?>
 
-            include __DIR__ . "/connectBD.php";
+                <div class="busket__item">
 
-            $products = [
-                "id" => "Count"
-            ];
+                    <div class="busket__img">
+                        <img src="<?= $book['urlImg'] ?>" alt="">
+                    </div>
 
-            $emailUser = getDataUser($_COOKIE['jwt-tocken'])->email;
+                    <div class="busket__info">
+                        <h2><?= $book['name'] ?></h2>
+                        <p><?= $book['price'] ?>руб.</p>
+                    </div>
 
-            if(empty($emailUser)) {
-                die("Вы не авторизованы");
-            }
+                    <div class="busket__price">
+                        <p>Количество: <?= $book['count'] ?></p>
 
-            $data = $connect->query("SELECT id FROM users WHERE email = '$emailUser'");
+                        <p>Цена: <?= $book['resultProduct'] ?>руб.</p>
 
-            $userID;
-            foreach ($data as $id) {
-                $userID = $id['id'];
-            }
+                        <form class="busket__btns" action="/add/changeBusket.php" method="POST">
 
-            $sql = "SELECT products FROM basket WHERE userID = $userID";
+                            <?php print_r($book['id']); ?>
 
+                            
+                            <input name="userID" type="text"  value="<?php echo $book['userID'] ?>" style="display: none;">
+                            <input name="hello" type="hidden" value="<?php echo $book['id'] ?>" style="display: none;">
 
-           $data = $connect->query($sql);
-            var_dump($data->fetch_assoc());
+                            <div class="busket__btn">
+                                <input id="plus" type="submit" style="display: none;" name="change" value="1" />
+                                <label for="plus">
+                                    <img src="/img/plus.png" alt="">
+                                </label>
+                            </div>
 
-        ?>
+                            <div class="busket__btn">
+                                <input id="minus" type="submit" style="display: none;" name="change" value="-1" />
+                                <label for="minus">
+                                    <img src="/img/minus-sign.png" alt="">
+                                </label>
+                            </div>
 
-    </div>
+                            <div class="busket__btn">
+                                <input id="close" type="submit" name="change" style="display: none;" value="close" />
+                                <label for="close">
+                                    <img src="/img/close.png" alt="">
+                                </label>
+                            </div>
+
+                        </form>
+                    </div>
+                     </div>
+                    
+                <?php } ?>
+
+                    
+
+               
+            </div>
+
+            <h1>Итог: <?= $basket['resultPrice'] ?>руб.</h1>
+
+    </div> 
     
 </body>
 </html>

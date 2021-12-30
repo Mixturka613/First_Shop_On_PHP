@@ -1,6 +1,6 @@
 <?php
 
-include ('./connectBD.php');
+include (__DIR__ . '/connectBD.php');
 
 $query = "select * from books";
 $sql_data = mysqli_query($connect, $query);
