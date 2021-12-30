@@ -10,15 +10,15 @@
         <div class="header__middle__side">
           <ul class="header__middle__side__inner">
             <li class="header__link">
-              <a href="/" class="header__link__inner">Новинки</a>
+              <a href="/" class="header__link__inner">Главная</a>
             </li>
 
             <li class="header__link">
-              <a href="/" class="header__link__inner">Контакты</a>
+              <a href="/support.php" class="header__link__inner">Контакты</a>
             </li>
 
             <li class="header__link">
-              <a href="/" class="header__link__inner">Популярные</a>
+              <a href="/about.php" class="header__link__inner">О нас</a>
             </li>
           </ul>
         </div>

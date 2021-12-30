@@ -16,6 +16,3 @@ function getDataUser($jwt) {
     $decoded = JWT::decode($jwt, "HELLOWORLD", ['HS256']);
     return $decoded;
 }
-
-
-?>

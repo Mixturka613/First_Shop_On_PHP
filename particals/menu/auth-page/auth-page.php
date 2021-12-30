@@ -10,7 +10,7 @@
 
   <hr class="auth__line" />
 
-  <form action="authorisation/login.php" method="POST" class="auth__form form__login">
+  <form action="/authorisation/login.php" method="POST" class="auth__form form__login">
     <h2 class="auth__title">Login</h2>
     <input
       class="auth__input"
@@ -29,7 +29,7 @@
     <input class="auth__btn form__btn" type="submit" value="Login" />
   </form>
 
-  <form action="authorisation/register.php" method="POST" class="auth__form form__register">
+  <form action="/authorisation/register.php" method="POST" class="auth__form form__register">
     <h2 class="auth__title">Registration</h2>
     <input
       class="auth__input"

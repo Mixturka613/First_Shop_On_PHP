@@ -49,8 +49,11 @@ foreach ($data as $book) {
           </h2>
 
           <h2 class="book__price">Price: <?= $data_about_book["price"] ?>₽</h2>
-
-          <button class="book__btn btn">Купить</button>
+          <form action="/add/addBasket.php" method="POST">
+            <input type="text" style="display: none;" name="id" value="<?= $data_about_book['id']; ?>">
+            <input type="submit" class="book__btn btn" value="Добавить в корзину" />
+          </form>
+          
         </div>
         <!-- Book content end -->
       </div>
