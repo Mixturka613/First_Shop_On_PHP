@@ -22,12 +22,21 @@ if(empty($idBook)) {
     die("ERROR: id книги не указан");
 }
 
-// if( SELECT COUNT(*) FROM `basket` WHERE userID = $userID )` 
+$newData = $connect->query("SELECT * FROM basket WHERE userID = $userID, products = $idBook");
+$count;
+var_dump($newData);
+
+// if( $newData ) {
+
+
+//     $sql = "INSERT INTO basket (userID, products, count) VALUES ($userID, $idBook, )";
+
+// }
 
 $sql = "INSERT INTO basket (userID, products) VALUES ($userID, $idBook)";
 
 if ( !$connect->query($sql)) {
     die("ERROR: Ошибка запроса");
 } else {
-    header("Location: http://coolbook/book.php/?id=" . $idBook);
+    // header("Location: http://coolbook/book.php/?id=" . $idBook);
 }
