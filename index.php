@@ -19,7 +19,8 @@ include ('./globalVariable.php');
   </head>
   <body>
 
-  <?php include ('./particals/menu/menu.php');
+  <?php
+    include ('./particals/menu/menu.php');
     include __DIR__ . "/add/busketInfo.php";
   ?>
 

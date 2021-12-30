@@ -25,7 +25,7 @@
 
         <?php 
             
-            foreach ($basket['elements'] as $product) { $book = $product[0];?>
+            foreach ($basket['elements'] as $product) { $book = $product[0];  $bookID = $book['id'] ?>
 
                 <div class="busket__item">
 
@@ -44,26 +44,9 @@
                         <p>Цена: <?= $book['resultProduct'] ?>руб.</p>
 
                         <form class="busket__btns" action="/add/changeBusket.php" method="POST">
-
-                            <?php print_r($book['id']); ?>
-
-                            
+            
                             <input name="userID" type="text"  value="<?php echo $book['userID'] ?>" style="display: none;">
-                            <input name="hello" type="hidden" value="<?php echo $book['id'] ?>" style="display: none;">
-
-                            <div class="busket__btn">
-                                <input id="plus" type="submit" style="display: none;" name="change" value="1" />
-                                <label for="plus">
-                                    <img src="/img/plus.png" alt="">
-                                </label>
-                            </div>
-
-                            <div class="busket__btn">
-                                <input id="minus" type="submit" style="display: none;" name="change" value="-1" />
-                                <label for="minus">
-                                    <img src="/img/minus-sign.png" alt="">
-                                </label>
-                            </div>
+                            <input name="hello" value="<?php echo $bookID ?>" type="hidden" />
 
                             <div class="busket__btn">
                                 <input id="close" type="submit" name="change" style="display: none;" value="close" />
