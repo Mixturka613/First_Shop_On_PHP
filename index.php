@@ -20,6 +20,11 @@ include ('./globalVariable.php');
   <body>
 
   <?php
+
+  if(!$connect->query("select * from books")) {
+    die("Импортируйте базу данных. Название файла: coolbook_bd.sql");
+  }
+
   include ('./particals/menu/menu.php');
   if(!empty($_COOKIE['jwt-tocken'])) {
     include __DIR__ . "/add/busketInfo.php";
