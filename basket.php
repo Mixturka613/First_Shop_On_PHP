@@ -11,9 +11,13 @@
 <body>
 
     <?php
+        if(empty( $_COOKIE['jwt-tocken'])) {
+            die("Для этой страницы вы должны быть авторизованы");
+        }
+
         include ('./particals/menu/menu.php');
-        include __DIR__ . "/add/busketInfo.php";
-      ?>
+        include_once __DIR__ . "/add/busketInfo.php";
+    ?>
 
     <header class="header">
       <? include ('./particals/header/header.php'); ?>
@@ -24,9 +28,15 @@
         <div class="busket__list">
 
         <?php 
-            
-            foreach ($basket['elements'] as $product) { $book = $product[0];  $bookID = $book['id'] ?>
 
+            if(empty( $basket['elements'])) {
+                die("Корзина пуста");
+            }
+            
+            foreach ($basket['elements'] as $product) { $book = $product[0];  $bookID = $data[$book['id']]['id']; ;
+
+               
+            ?>  
                 <div class="busket__item">
 
                     <div class="busket__img">
@@ -43,19 +53,19 @@
 
                         <p>Цена: <?= $book['resultProduct'] ?>руб.</p>
 
-                        <form class="busket__btns" action="/add/changeBusket.php" method="POST">
+                        
             
-                            <input name="userID" type="text"  value="<?php echo $book['userID'] ?>" style="display: none;">
-                            <input name="hello" value="<?php echo $bookID ?>" type="hidden" />
+                            <!-- <input name="userID" type="text"  value="<?php echo $book['userID'] ?>" style="display: none;">
+                            <input name="hello" value="<?php echo $bookID; ?>" type="hidden" />
 
                             <div class="busket__btn">
                                 <input id="close" type="submit" name="change" style="display: none;" value="close" />
                                 <label for="close">
                                     <img src="/img/close.png" alt="">
                                 </label>
-                            </div>
+                            </div> -->
 
-                        </form>
+                       
                     </div>
                      </div>
                     
@@ -67,6 +77,12 @@
             </div>
 
             <h1>Итог: <?= $basket['resultPrice'] ?>руб.</h1>
+
+            <form action="/pay/pay.php" method="POST">
+                <input type="hidden" name="resultPrice" value="<? echo $basket['resultPrice']?>">
+                <input type="hidden" name="userID" value="<? echo $basket['userID'] ?> " >
+                <input type="submit" value="Оплатить" class="default__btn" <?php ($basket['resultPrice'] == 0 or empty($basket['resultPrice']) ? 'disabled' : '' ) ?> >
+            </form>
 
     </div> 
     

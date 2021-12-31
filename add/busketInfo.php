@@ -3,7 +3,7 @@ include __DIR__ . "/../connectBD.php";
 include __DIR__ . "/../product.php";
 
 if(empty($_COOKIE['jwt-tocken'])) {
-    die("Вы не авторизованы");
+    return false;
 }
 
 $emailUser = getDataUser($_COOKIE['jwt-tocken'])->email;
@@ -22,12 +22,14 @@ foreach( $connect->query($sql) as $product) {
     $products[] = $product;
 }
 
-if( empty($products) ) {
-    die("У вас нет товаров");
-}
-
 $busket = array();
-            
+
+if( empty($products) ) {
+    $basket['userID'] = $userID;
+    $basket['resultPrice'] = 0;
+    return $busket;
+}
+      
 for ($i = 0; $i < count($data); $i++) {
 
     $bookID = $data[$i]['id'];
@@ -39,8 +41,9 @@ for ($i = 0; $i < count($data); $i++) {
 
         $resultProduct = $data[$i]['price'] * $product['count'];
         $result += $resultProduct;
-        $basket['elements'][$bookID] = [ $data[$i] + ['count' => $product['count'], 'userID' => $userID, 'resultProduct' => $resultProduct] ] ;
+        $basket['elements'][$bookID] = [ $data[$i] + ['count' => $product['count'], 'resultProduct' => $resultProduct] ] ;
     }
 }
 
 $basket['resultPrice'] = $result;
+$basket['userID'] = $userID;

@@ -54,7 +54,7 @@ foreach ($data as $book) {
           <h2 class="book__price">Price: <?= $data_about_book["price"] ?>₽</h2>
           <form action="/add/addBasket.php" method="POST">
             <input type="text" style="display: none;" name="id" value="<?= $data_about_book['id']; ?>">
-            <input type="submit" class="book__btn btn" value="Добавить в корзину" />
+            <input type="submit" class="book__btn btn" value="Добавить в корзину" <? echo empty($_COOKIE['jwt-tocken']) ? 'disabled' : ''  ?> />
           </form>
           
         </div>

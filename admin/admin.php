@@ -49,49 +49,19 @@
             >
           </ul>
 
-          <h2 class="menu__title">Authors</h2>
+          <h2 class="menu__title">Messages</h2>
 
           <ul class="menu__list">
             <a class="menu__links" href="/admin/message.php">messages</a>
           </ul>
 
+          <h2>Orders</h2>
+
+          <ul class="menu__list">
+            <a class="menu__links" href="/admin/orders.php">orders</a>
+          </ul>
+
         </div>
-
-        <div class="admin__page">
-          <div class="admin__todos plugin">
-            <form class="admin__form" action="/admin/todos.php">
-              <input
-                class="todo__input"
-                type="text"
-                placeholder="Write new case..."
-                name="case"
-              />
-              <input class="todo__btn default__btn" type="submit" value="Add" />
-            </form>
-
-            <hr class="line" />
-
-            <!-- Todos LIST -->
-            <div class="admin__todos__list">
-              <form class="todo__block" method="POST">
-                <div class="todo__block__interface">
-                  <p class="todo__text">Что-то...</p>
-
-                  <input
-                    type="submit"
-                    name="finish"
-                    value=""
-                    id="todo_delete"
-                  />
-                  <label class="todo_delete" for="todo_delete"
-                    ><img src="/img/recycle-bin.png" alt=""
-                  /></label>
-                </div>
-
-                <p class="todo__date">Dedline: 31.12.21</p>
-              </form>
-            </div>
-            <!-- Todos LIST END -->
             
           </div>
         </div>

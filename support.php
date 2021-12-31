@@ -16,7 +16,12 @@
       ?>
 
     <? 
+      if(empty($_COOKIE['jwt-tocken'])) {
+        die("ERROR: Для использования этой страницы вы должны быть авторизованы");
+      } else {
         $dataUser=getDataUser($_COOKIE['jwt-tocken']);
+      }
+      
     ?>
 
     <header class="header">

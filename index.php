@@ -20,8 +20,11 @@ include ('./globalVariable.php');
   <body>
 
   <?php
-    include ('./particals/menu/menu.php');
+  include ('./particals/menu/menu.php');
+  if(!empty($_COOKIE['jwt-tocken'])) {
     include __DIR__ . "/add/busketInfo.php";
+  }
+  
   ?>
 
     <header class="header">
