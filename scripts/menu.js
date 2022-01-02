@@ -1,18 +1,39 @@
-let btn = document.querySelector(".header__user__link");
+let btn = document.querySelector(".menu__btn");
+let menu = document.querySelector(".menu");
 
 let i = false;
+
+document.querySelector(".header__user").addEventListener("click", (e) => {
+  console.log(e);
+  changePositionMenu();
+});
 
 btn.addEventListener("click", (e) => {
   changePositionMenu();
 });
 
 function changePositionMenu() {
+  let hiddenPostion = 350;
+
+  if (document.body.clientWidth <= 600) {
+    hiddenPostion = document.body.clientWidth;
+  }
+
   if (i === false) {
     i = true;
-    document.querySelector(".menu").style.right = "0";
+
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+
+    document.body.style.overflowY = "hidden";
+    menu.style.width = `${hiddenPostion}px`;
+    menu.style.display = "block";
   } else {
     i = false;
-    document.querySelector(".menu").style.right = "-350px";
+    document.body.style.overflowY = "scroll";
+    menu.style.display = `none`;
   }
 }
 
@@ -33,3 +54,5 @@ function changeForm(form) {
 document.querySelector(".close").addEventListener("click", (e) => {
   changePositionMenu();
 });
+
+console.log();

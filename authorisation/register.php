@@ -6,10 +6,10 @@ use Firebase\JWT\Key;
 require_once('../vendor/autoload.php');
 
 // Подтягиваем данные
-include ('../connectBD.php');
+include __DIR__ . '/../connectBD.php';
 include ('../globalVariable.php');
 
-$username = htmlentities ($connect->real_escape_string($_POST['username']) );
+$username = (string)htmlentities ($connect->real_escape_string($_POST['username']) );
 $email = htmlentities ($connect->real_escape_string( $_POST['email'] ) );
 $password = htmlentities ($connect->real_escape_string( $_POST['password'] ) );
 $rPassword = htmlentities ($connect->real_escape_string ($_POST['passwordRepeat'] ) );
@@ -30,12 +30,11 @@ if ( !empty($email) and !empty($password) and !empty($rPassword) and !empty($use
     }
 
     // Хеширование пароля
-    $hash_password = password_hash($password, PASSWORD_BCRYPT);
+    $hash_password = (string)password_hash($password, PASSWORD_BCRYPT);
 
     // Код отправки данных в бд
-    $sql = "INSERT INTO USERS (email,password, username) VALUES( '$email', '$hash_password', '$username')";
-    $save = mysqli_query($connect, $sql);
-
+    $sql = "INSERT INTO users (email,password, username, admin) VALUES( '$email', '$hash_password', '$username', FALSE)";
+    $save = $connect->query($sql);
     // Genrate JWT token
     $payload = array(
         "username" => $username,
@@ -46,8 +45,9 @@ if ( !empty($email) and !empty($password) and !empty($rPassword) and !empty($use
     $jwt = JWT::encode($payload, $key, 'HS256');
 
     if ($save) {
+    	$link = $_SERVER['HTTP_REFERER'];
         setcookie("jwt-tocken", $jwt, time()+(60*60*60), '/');
-        return header('Location: http://coolbook/');
+        return header("Location: $link");
     }
     else {
         echo "Что-то пошло не так";

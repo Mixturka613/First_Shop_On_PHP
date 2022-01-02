@@ -1,7 +1,8 @@
-<?php 
+<?
 
 include ('./product.php');
 include ('./globalVariable.php');
+// 
 
 ?>
 
@@ -14,33 +15,33 @@ include ('./globalVariable.php');
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" type="text/css" href="/css/style.css" />
     <script src="particals/filters/filter.js" defer></script>
-    <script src="scripts/menu.js " defer></script>
+    <script src="/scripts/menu.js " defer></script>
     <title>CoolBook</title>
   </head>
   <body>
 
   <?php
 
-  if(!$connect->query("select * from books")) {
-    die("Импортируйте базу данных. Название файла: coolbook_bd.sql");
-  }
-
-  include ('./particals/menu/menu.php');
+  include (__DIR__ . '/particals/menu/menu.php');
   if(!empty($_COOKIE['jwt-tocken'])) {
-    include __DIR__ . "/add/busketInfo.php";
+    include_once __DIR__ . "/add/busketInfo.php";
   }
-  
   ?>
 
+  <div class="wrapper">
+
     <header class="header">
-      <? include ('./particals/header/header.php'); ?>
+      <?php include (__DIR__ . '/particals/header/header.php');?>
     </header>
+    
+    
+    
     
       <div class="shop container">
 
         <!-- Filters -->
         <section class="filter shop__filter">
-          <? include ('./particals/filters/filter.php') ?>
+          <? include ('./particals/filters/filter.php'); ?>
         </section>
         <!-- Filters end -->
 
@@ -50,6 +51,8 @@ include ('./globalVariable.php');
           <div class="shop__list">
 
           <?php
+          
+          //HTTP_HOST
             
           $filterPrice = (int)$_GET["price"];
           $filterGenres = $_GET['genre'];   
@@ -97,6 +100,8 @@ include ('./globalVariable.php');
         <!-- SHOP LIST END -->
         <!-- Content END -->
       </div>
+
+    </div>
       
   </body>
 </html>

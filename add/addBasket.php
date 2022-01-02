@@ -38,8 +38,9 @@ if( $newData->num_rows ) {
     $sql = "INSERT INTO basket (userID, products, count) VALUES ($userID, $idBook, 1)";
 }
 
+$link = $_SERVER['HTTP_REFERER'];
 if ( !$connect->query($sql)) {
     die("ERROR: Ошибка запроса");
 } else {
-    header("Location: http://coolbook/book.php/?id=" . $idBook);
+    header("Location: $link");
 }

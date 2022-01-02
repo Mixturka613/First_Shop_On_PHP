@@ -50,8 +50,9 @@ $payload = array(
 
 $jwt = JWT::encode($payload, $key, 'HS256');
 
+$link = $_SERVER['HTTP_REFERER'];
 setcookie("jwt-tocken", $jwt, time()+(60*60*60), '/');
-return header('Location: http://coolbook/');
+return header("Location: $link");
 
  
 ?>

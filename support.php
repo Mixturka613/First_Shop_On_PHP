@@ -12,7 +12,7 @@
 
       <?php
         include ('./particals/menu/menu.php');
-        include __DIR__ . "/add/busketInfo.php";
+        include_once __DIR__ . "/add/busketInfo.php";
       ?>
 
     <? 
