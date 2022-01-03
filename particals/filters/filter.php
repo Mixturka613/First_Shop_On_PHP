@@ -9,7 +9,15 @@ $maxValue;
 <form action="/index.php?price=" method="GET">
     <h2 class="filter__title">Цена</h2>
 
-    <input id="filter__price" name="price" value="<?= (!empty($_GET["price"])) ? $_GET["price"] : "" ?>" oninput="changePrice()" type="range" step="1"  min="<?= min(array_column($data, 'price')); ?>" max="<?= max(array_column($data, 'price'));?>" />
+    <input  id="filter__price" name="price" 
+      value="<?= (!empty($_GET["price"])) ? str_replace(["'", "<", ">"], "", $_GET["price"]) : "" ?>"
+      oninput="changePrice()"
+      type="range"
+      step="1"
+      pattern=[0-9]
+      min="<?= min(array_column($data, 'price')); ?>"
+      max="<?= max(array_column($data, 'price'));?>" 
+      />
 
     <span id="filter__result"></span>
 

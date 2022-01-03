@@ -51,26 +51,22 @@ include ('./globalVariable.php');
           <div class="shop__list">
 
           <?php
-          
-          //HTTP_HOST
-            
-          $filterPrice = (int)$_GET["price"];
+ 
+          $filterPrice = isset( $_GET['price'] ) ? htmlspecialchars ((int)$_GET['price'] ) : null;
           $filterGenres = $_GET['genre'];   
           
           foreach ($data as $products => $product) {
 
-            if($filterPrice !== 0) {
-              if($filterPrice < $product["price"]) {
-                continue;
-              } else {
-                if ($filterGenres !== NULL) {
-                  if(array_search($product['genre'], $filterGenres) === false) {
+              if( isset($filterPrice) ) {   
+                if($filterPrice < $product["price"]) {
+                  continue;
+                } else {
+                  if( !empty($filterGenres) and array_search($product['genre'], $filterGenres) === false) {
                     continue;
-                  }
-                  
+                  }            
                 }
               }
-            } ?>
+          ?>
 
             <!-- SHOP ITEM -->
 

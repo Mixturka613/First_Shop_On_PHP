@@ -833,6 +833,11 @@ body {
   .shop__item {
     margin-right: 0px;
   }
+  .busket__item {
+    flex-direction: column;
+    overflow: visible;
+    flex-wrap: nowrap;
+  }
 }
 
 @media screen and (max-width: 500px) {
