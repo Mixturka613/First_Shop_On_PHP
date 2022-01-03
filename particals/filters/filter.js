@@ -3,7 +3,6 @@ function changePrice() {
   let result = document.querySelector("#filter__result");
 
   let filterValue = filter.value;
-  filterValue.replace("'><", "");
   result.textContent = String(filterValue) + "₽";
 }
 

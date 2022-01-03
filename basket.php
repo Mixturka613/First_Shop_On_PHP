@@ -9,7 +9,7 @@
     <title>Document</title>
 </head>
 <body>
-
+    smt..
     <?php
         if(empty( $_COOKIE['jwt-tocken'])) {
             die("Для этой страницы вы должны быть авторизованы");
