@@ -14,11 +14,10 @@ $maxValue;
         <input
           name="priceMin"
           id="input-left" 
-          value="<?= (!empty($_GET["priceMin"])) ? str_replace(["'", "<", ">"], "", $_GET["priceMin"]) : "" ?>" 
+          value="<?= (!empty($_GET["priceMin"]) or $_GET["priceMin"] == 0) ? str_replace(["'", "<", ">"], "", $_GET["priceMin"]) : "" ?>" 
           type="range" 
           min="0" 
           max="<?= max(array_column($data, 'price'));?>" 
-          value="25" 
           pattern="[0-9]"
         />
         <input 
@@ -52,11 +51,11 @@ $maxValue;
     <div class="filter__genres">
       <!-- ADD .... -->
 
-      <?php foreach ($genres as $key => $value) {?>
+      <?php foreach ($genres as $value) { ?>
 
             <div class="filter__gener"> 
-                <input type="checkbox" name="genre[]" value="<?= $value["name"] ?>" id="<?= $key ?>" <?=(!empty($_GET['genre']) && array_search($value['name'], $_GET['genre']) !== false) ? 'checked' : ''?>>
-                <label for="<?= $key ?>"><?= $value["name"]?></label>
+                <input type="checkbox" name="genre[]" value="<?= $value["name"] ?>" id="<?= $value['id'] ?>" <?=(!empty($_GET['genre']) && array_search($value['name'], $_GET['genre']) !== false) ? 'checked' : ''?>>
+                <label for="<?= $value['id'] ?>"><?= $value["name"]?></label>
             </div>
 
         <? }; ?>

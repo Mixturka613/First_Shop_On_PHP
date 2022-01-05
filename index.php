@@ -59,7 +59,7 @@ include ('./globalVariable.php');
           foreach ($data as $products => $product) {
 
               if( isset($minPrice) and isset($maxPrice)) {   
-                if($minPrice > $product["price"] and $maxPrice > $product["price"]) {
+                if($minPrice > $product["price"] and $maxPrice < $product["price"]) {
                   continue;
                 } else {
                   if( !empty($filterGenres) and array_search($product['genre'], $filterGenres) === false) {
