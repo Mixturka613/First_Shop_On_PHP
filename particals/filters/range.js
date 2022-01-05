@@ -16,9 +16,9 @@ function setLeftValue() {
 
   let distance = (max / 100) * 20;
 
-  input.value = Math.min(input.value, inputRight.value - distance);
+  inputLeft.value = Math.min(input.value, inputRight.value - distance);
 
-  let porcent = ((input.value - min) / (max - min)) * 100;
+  let porcent = input.value / (max/100) * 0.85;
 
   minPrice.value = input.value + "₽";
   thumbLeft.style.left = porcent + "%";
@@ -35,13 +35,11 @@ function setRightValue() {
 
   inputRight.value = Math.max(input.value, Number(inputLeft.value) + distance);
 
-  let porcent = ((input.value - min) / (max - min)) * 100;
-
-  console.log(porcent);
+  let porcent = (max - input.value) / (max/100) * 0.85;
 
   maxPrice.value = input.value + "₽";
-  thumbRight.style.right = 100 - porcent + "%";
-  range.style.right = 100 - porcent + "%";
+  thumbRight.style.right = porcent + "%";
+  range.style.right = porcent + "%";
 }
 setRightValue();
 

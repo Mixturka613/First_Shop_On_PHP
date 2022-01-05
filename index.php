@@ -51,13 +51,15 @@ include ('./globalVariable.php');
 
           <?php
  
-          $filterPrice = isset( $_GET['price'] ) ? htmlspecialchars ((int)$_GET['price'] ) : null;
+          $minPrice = isset( $_GET['priceMin'] ) ? htmlspecialchars ((int)$_GET['priceMin'] ) : null;
+          $maxPrice = isset( $_GET['priceMax'] ) ? htmlspecialchars ((int)$_GET['priceMax'] ) : null;
+
           $filterGenres = $_GET['genre'];   
           
           foreach ($data as $products => $product) {
 
-              if( isset($filterPrice) ) {   
-                if($filterPrice < $product["price"]) {
+              if( isset($minPrice) and isset($maxPrice)) {   
+                if($minPrice > $product["price"] and $maxPrice > $product["price"]) {
                   continue;
                 } else {
                   if( !empty($filterGenres) and array_search($product['genre'], $filterGenres) === false) {

@@ -1,7 +1,7 @@
 .multi-range-slider {
   position: relative;
   width: 100%;
-  max-width: 200px;
+  max-width: 100px;
 }
 
 input[type="range"] {
@@ -10,15 +10,16 @@ input[type="range"] {
   pointer-events: none;
   -webkit-appearance: none;
   height: 10px;
-  width: 100%;
+  width: 101%;
+  border-radius: 5px;
+  transform: translateY(2px);
   opacity: 0;
 }
 
 input[type="range"]::-webkit-slider-thumb {
   pointer-events: all;
-  width: 40px;
-  height: 40px;
-  border-radius: 0;
+  width: 20px;
+  height: 20px;
   border: 0 none;
   background-color: red;
   -webkit-appearance: none;
@@ -46,7 +47,7 @@ input[type="range"]::-webkit-slider-thumb {
 
 .thumb {
   position: absolute;
-  z-index: 3;
+  z-index: 3; 
   width: 20px;
   height: 20px;
   background: rgb(42, 196, 243);
@@ -56,11 +57,11 @@ input[type="range"]::-webkit-slider-thumb {
 
 .thumb.left {
   left: 25%;
-  transform: translate(-3px, -3px);
+  transform: translate(-1px, -3px);
 }
 
 .thumb.right {
-  right: 50%;
+  right: 25%;
   transform: translate(2px, -3px);
 }
 

@@ -11,8 +11,25 @@ $maxValue;
 
     <div class="range-container">
       <div class="multi-range-slider">
-        <input id="input-left" type="range" min="<?= min(array_column($data, 'price')); ?>" max="<?= max(array_column($data, 'price'));?>" value="25" />
-        <input id="input-right" type="range" min="<?= min(array_column($data, 'price')); ?>" max="<?= max(array_column($data, 'price'));?>" value="80" />
+        <input
+          name="priceMin"
+          id="input-left" 
+          value="<?= (!empty($_GET["priceMin"])) ? str_replace(["'", "<", ">"], "", $_GET["priceMin"]) : "" ?>" 
+          type="range" 
+          min="0" 
+          max="<?= max(array_column($data, 'price'));?>" 
+          value="25" 
+          pattern="[0-9]"
+        />
+        <input 
+          name="priceMax" 
+          id="input-right" 
+          type="range" 
+          min="0" 
+          max="<?= max(array_column($data, 'price'));?>" 
+          value="<?= (!empty($_GET["priceMax"])) ? str_replace(["'", "<", ">"], "", $_GET["priceMax"]) : "" ?>" 
+          pattern="[0-9]"
+        />
 
         <div class="slider">
           <div class="track"></div>
@@ -23,23 +40,11 @@ $maxValue;
       </div>
    
       <div class="range_output">
-        <input type="text" value="" id="min-price">
-        <input type="text" value="" id="max-price">
+        <input disabled type="text" id="min-price">
+        <input disabled type="text" id="max-price">
       </div>
 
     </div>
-
-    <!-- <input  id="filter__price" name="price" 
-      value="<?= (!empty($_GET["price"])) ? str_replace(["'", "<", ">"], "", $_GET["price"]) : "" ?>"
-      oninput="changePrice()"
-      type="range"
-      step="1"
-      pattern=[0-9]
-      min="<?= min(array_column($data, 'price')); ?>"
-      max="<?= max(array_column($data, 'price'));?>" 
-      /> -->
-
-    <!-- <span id="filter__result"></span> -->
 
     <h2 class="filter__title">Фильтр</h2>
     <hr class="filter__line line" />
