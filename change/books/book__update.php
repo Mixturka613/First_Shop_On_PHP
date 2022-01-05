@@ -27,6 +27,15 @@
         $genre = $data['genre'];
         $author = $data['author'];
 
+        $genres = $connect->query("SELECT name FROM `genres` WHERE name = '$genre'");
+        if (!$genres ) {
+            die("Ошибка запроса");
+        } 
+
+        if ( empty($genres->num_rows) ) {
+            $connect->query("INSERT INTO `genres` (name) VALUES ('$genre')");
+        } 
+
         $sql = "INSERT INTO books (name, author, urlImg, price, genre, description) VALUES ('$name', '$author' , '$img', $price, '$genre', '$description')";
 
         if ( !$connect->query($sql) ) {
