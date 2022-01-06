@@ -1,8 +1,3 @@
-<?php
-
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,7 +13,7 @@
     <?php
         include __DIR__ . "/../particals/menu/menu.php";
         include __DIR__ . "/../connectBD.php";
-        include __DIR__ . "/../add/busketInfo.php";
+        include_once __DIR__ . "/../add/busketInfo.php";
     ?>
 
     <header class="header">
@@ -29,20 +24,20 @@
     <div class="container">
         <h1>Общая сумма заказа: <?php echo $_POST['resultPrice'] ?>руб.</h1>
 
-        <form action="/pay/queryPay.php" method="POST">
+        <form action="/pay/queryPay.php" method="POST" class="pay__form">
 
             <input type="hidden" name="userID" value="<? echo $_POST['userID'] ?>">
 
-            <input name="FIO" type="text" placeholder="ФИО" required>
-            <input name="adress" type="text" placeholder="Адрес" required>
+            <input class="pay__input" name="FIO" type="text" placeholder="ФИО" required>
+            <input class="pay__input" name="adress" type="text" placeholder="Адрес" required>
             
-            <input name="card" inputmode="numeric" pattern="[0-9\s]{13,19}" autocomplete="cc-number" maxlength="19" placeholder="xxxx xxxx xxxx xxxx" required>
+            <input class="pay__input" name="card" inputmode="numeric" pattern="[0-9\s]{13,19}" autocomplete="cc-number" maxlength="19" placeholder="xxxx xxxx xxxx xxxx" required>
 
-            <input type="text" name="phone" placeholder="Номер телефона" required>
+            <input class="pay__input" type="text" name="phone" placeholder="Номер телефона" required>
 
-            <input name="index" type="number" placeholder="Индекс">
+            <input class="pay__input" name="index" type="number" placeholder="Индекс">
 
-            <input type="submit" value="Оплатить">
+            <input class="default__btn" type="submit" value="Оплатить">
 
         </form>
 

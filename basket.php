@@ -9,12 +9,10 @@
     <title>Document</title>
 </head>
 <body>
-    smt..
     <?php
         if(empty( $_COOKIE['jwt-tocken'])) {
             die("Для этой страницы вы должны быть авторизованы");
         }
-
         include ('./particals/menu/menu.php');
         include_once __DIR__ . "/add/busketInfo.php";
     ?>
